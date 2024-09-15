@@ -52,13 +52,13 @@ def main():
     try:
         account1.deposit("abc")
     except ValueError as e:
-        print(f"Invalid deposit amount:{e}")
+        print(f"Invalid deposit amount: {e}")
 
     # 7. Attempt to deposit a negative value into the BankAccount create in step 3. 
     try:
         account1.deposit(-100.00)
     except ValueError as e:
-        print(f"Invalid deposit amount:{e}")
+        print(f"Invalid deposit amount: {e}")
 
     # 8. Attempt to withdraw a valid amount of your choice from the BankAccount create in step 3. 
 
@@ -68,20 +68,20 @@ def main():
     try:
         account1.withdraw("abc")
     except ValueError as e:
-        print(f"Invalid withdraw amount{e}")
+        print(f"Invalid withdraw amount: {e}")
 
     # 10. Attempt to withdraw a negative value from the BankAccount create in step 3. 
     try:
         account1.withdraw(-100)
     except ValueError as e:
-        print(f"Invalid withdraw amount{e}")
+        print(f"Invalid withdraw amount: {e}")
 
     # 11. Attempt to withdraw a value from the BankAccount create in step 3 which 
     # exceeds the current balance of the account. 
     try:
         account1.withdraw(5000)
     except ValueError as e:
-        print(f"Invalid withdraw amount(exceed account balance){e}")
+        print(f"Invalid withdraw amount(exceed account balance):{e}")
  
     # 12. Code a statement which prints the BankAccount instance created in step 3. 
     print(f"Final account status: {account1}")
