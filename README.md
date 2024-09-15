@@ -5,10 +5,11 @@ an entire system will be created to manage bank transactions for clients who
 have one or more bank accounts.
 
 ## Author
-[Your name]
+[Tong Xu]
 
 ## Assignment
-Assignment [assignment number]: [Indicate the name and description of the current assignment]
+Assignment [assignment 1]: [Module 1 Assignment Instructions -- Classes]
 
 ## Encapsulation
-[use this section to explain how Encapsulation was achieved in the BankAccount and Transaction classes.]
+[In both Client and BankAccout class, I decleared attributes such as first name, balance, account number, client id as private
+in order to make sure they can not be accessed from outside to ensures that the object's state remains consistent and valid.]
