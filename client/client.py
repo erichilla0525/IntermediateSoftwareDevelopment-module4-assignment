@@ -88,6 +88,5 @@ class client:
     def __str__(self):
         return f"{self.__last_name}, {self.__first_name} [{self.__client_number}] - {self.__email_address}"
     
-clientfrist = client(525,"Daniel","Chinchilla","erichilla0525@gmail.com")
-print(clientfrist)
+
     

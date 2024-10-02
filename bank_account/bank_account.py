@@ -62,12 +62,6 @@ class BankAccount:
         """
         return self.__balance
     
-    # Add setter for balance
-    @balance.setter
-    def balance(self,value):
-        self.__balance = value
-
-
     def update_balance(self,amount):
         """
         update_balance: For updating balance of the account
@@ -76,8 +70,8 @@ class BankAccount:
         """
         if isinstance(amount,float):
             self.__balance += amount
-            return True
-        return False
+        else:
+            raise ValueError("Amount must be a float")
 
     def deposit(self,amount):
         """
@@ -122,7 +116,7 @@ class BankAccount:
         # Update the balance if withdraw amount is valid 
         self.update_balance(-amount)
 
-        # def a str method that the balance is displayed to 2 decimal places with currency ($) formatting
+    # def a str method that the balance is displayed to 2 decimal places with currency ($) formatting
     def __str__(self):
         """
 
