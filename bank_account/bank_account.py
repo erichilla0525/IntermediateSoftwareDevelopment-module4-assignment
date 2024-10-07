@@ -4,7 +4,10 @@ Author: {Tong Xu}
 Date: {2024.9.10}
 """
 
-class BankAccount:
+from datetime import date
+from abc import ABC, abstractmethod
+
+class BankAccount(ABC):
     """
     BankAcount: For containing BankAccount data
     Attributes:
@@ -12,7 +15,9 @@ class BankAccount:
         __client_number(int): An integer value representing the client number representing the account holder.
         __balance(float): A float value representing the current balance of the bank account.
     """
-    def __init__(self, account_number:int, client_number:int, balance:float):
+    BASE_SERVICE_CHARGE = 0.50
+
+    def __init__(self, account_number:int, client_number:int, balance:float, date_created:date):
         """
         init: Initialize a class of attribute with args value
         Args:
@@ -36,6 +41,12 @@ class BankAccount:
             self.__balance = float(balance)
         except ValueError:
             self.__balance = 0
+
+        # Validate data created is a instance of data class
+        if isinstance(date_created,date):
+            self._date_created = date_created
+        else:
+            self._date_created = date.today()
 
 
     # Add property for account number
@@ -115,6 +126,13 @@ class BankAccount:
         
         # Update the balance if withdraw amount is valid 
         self.update_balance(-amount)
+
+    def get_service_charges(self):
+        """
+        Returns to the calculated service charge: BASE_SERVICE_CHARGE.
+        """
+        return self.BASE_SERVICE_CHARGE
+        
 
     # def a str method that the balance is displayed to 2 decimal places with currency ($) formatting
     def __str__(self):
