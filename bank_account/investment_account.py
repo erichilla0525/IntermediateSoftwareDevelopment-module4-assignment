@@ -10,12 +10,8 @@ class InvestmentAccount(BankAccount):
     """
     InvestmentAccount class: Maintain InvestmentAccount data
     Attributes:
-        account_number(int):
-        client_number(int):
-        balance:(float):
-        date_created(date):
-        TEN_YEARS_AGO(date):
-        management_fee(float):
+        TEN_YEARS_AGO(date):The TEN_YEARS_AGO constant of date type will be calculated to the current date minus ten years using the following formula
+        management_fee(float):A float which stores a flat-rate fee the bank charges for managing an InvestmentAccount
     """
     TEN_YEARS_AGO = date.today() - timedelta(days = 10 * 365.25)
     
@@ -24,12 +20,7 @@ class InvestmentAccount(BankAccount):
         """
         Initialize a investmentaccount object
         Args:
-            account_number(int):
-            client_number(int):
-            balance:(float):
-            date_created(date):
-            TEN_YEARS_AGO(date):
-            management_fee(float):
+            management_fee(float):A float which stores a flat-rate fee the bank charges for managing an InvestmentAccount
         """
         super().__init__(account_number,client_number,balance,date_created)
 
