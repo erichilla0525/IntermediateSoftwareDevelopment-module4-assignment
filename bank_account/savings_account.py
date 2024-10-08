@@ -11,7 +11,7 @@ class SavingsAccount(BankAccount):
     """
     SavingsAccount class: Maintain InvestmentAccount data
     Attributes:
-        SERVICE_CHARGE_PREMIUM:(float=2.0):The SERVICE_CHARGE_PREMIUM constant is set to a flat rate of 2.00. 
+        SERVICE_CHARGE_PREMIUM:(float=2.0): The SERVICE_CHARGE_PREMIUM constant is set to a flat rate of 2.00. 
         That is, a SavingsAccounts will incur 2 times the BASE_SERVICE_CHARGE when the balance drops below the minimum_balance.
         minimum_balance:(float): The minimum value a balance can be before further service charges are applied.
     """
@@ -22,7 +22,7 @@ class SavingsAccount(BankAccount):
         """
         Initialize a SavingsAccount object
         Args:
-            minimum_balance:(float):The minimum value a balance can be before further service charges are applied.
+            minimum_balance:(float): A float that represent the minimum value a balance can be before further service charges are applied.
         """
         super().__init__(account_number,client_number,balance,date_created)
 

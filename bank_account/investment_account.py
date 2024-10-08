@@ -10,8 +10,8 @@ class InvestmentAccount(BankAccount):
     """
     InvestmentAccount class: Maintain InvestmentAccount data
     Attributes:
-        TEN_YEARS_AGO(date):The TEN_YEARS_AGO constant of date type will be calculated to the current date minus ten years using the following formula
-        management_fee(float):A float which stores a flat-rate fee the bank charges for managing an InvestmentAccount
+        TEN_YEARS_AGO(date): The TEN_YEARS_AGO constant of date type will be calculated to the current date minus ten years using the following formula
+        management_fee(float): a flat-rate fee the bank charges for managing an InvestmentAccount
     """
     TEN_YEARS_AGO = date.today() - timedelta(days = 10 * 365.25)
     

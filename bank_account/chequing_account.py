@@ -19,9 +19,11 @@ class ChequingAccount(BankAccount):
         """
         Initilize a chequing account object
         Args:
-            
-            overdraft_limit(float):The maximum amount a balance can be overdrawn (below 0.00) before overdraft fees are applied
-            overdraft_rate(float):The rate to which overdraft fees will be applied
+            account_number(int): An integer value representing the bank account number.
+            client_number(int): An integer value representing the client number representing the account holder.
+            balance(float): A float value representing the current balance of the bank account.
+            overdraft_limit(float):A float that represent the maximum amount a balance can be overdrawn (below 0.00) before overdraft fees are applied
+            overdraft_rate(float):A float represent the rate to which overdraft fees will be applied
         """
         super().__init__(account_number, client_number, balance, date_created)
 
