@@ -11,9 +11,14 @@ class BankAccount(ABC):
     """
     BankAcount: For containing BankAccount data
     Attributes:
-        __account_number(int): An integer value representing the bank account number.
-        __client_number(int): An integer value representing the client number representing the account holder.
-        __balance(float): A float value representing the current balance of the bank account.
+        __account_number(int): Bank account number of the bankaccount.
+        __client_number(int): Client number of the bankaccount.
+        __balance(float): Current balance of the bank account of the bankaccount. 
+
+    Methods:
+        __init__(): Initializes a BankAccount object
+        account_number():
+        
     """
     BASE_SERVICE_CHARGE = 0.50
 

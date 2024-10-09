@@ -13,6 +13,11 @@ class ChequingAccount(BankAccount):
     Attributes:
         overdraft_limit(float): The maximum amount a balance can be overdrawn (below 0.00) before overdraft fees are applied
         overdraft_rate(float): The rate to which overdraft fees will be applied
+
+    Methods:
+        __init__(): Initializes ChequeingAccount instance.
+        __str__(): Returns a string representation of the chequingAccount
+        get_service_charges(): calculated service charge
     """
     def __init__(self, account_number:int, client_number:int, balance:float, 
                  date_created:date, overdraft_limit:float, overdraft_rate:float):

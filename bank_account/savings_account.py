@@ -14,6 +14,10 @@ class SavingsAccount(BankAccount):
         SERVICE_CHARGE_PREMIUM:(float=2.0): The SERVICE_CHARGE_PREMIUM constant is set to a flat rate of 2.00. 
         That is, a SavingsAccounts will incur 2 times the BASE_SERVICE_CHARGE when the balance drops below the minimum_balance.
         minimum_balance:(float): The minimum value a balance can be before further service charges are applied.
+    Methods:
+        __init__(): Initializes a SavingAccount instance.
+        __str__(): Returns to a string representation of SavingAccount.
+        get_service_charges(): Calculate the service charge of saving account.
     """
 
     SERVICE_CHARGE_PREMIUM = 2.0
