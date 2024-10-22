@@ -20,9 +20,11 @@ class BankAccount(ABC):
         account_number():
         
     """
-    BASE_SERVICE_CHARGE = 0.50
-
+    
     def __init__(self, account_number:int, client_number:int, balance:float, date_created:date):
+
+        self.BASE_SERVICE_CHARGE = 0.50
+
         """
         init: Initialize a class of attribute with args value
         Args:
@@ -132,9 +134,10 @@ class BankAccount(ABC):
         # Update the balance if withdraw amount is valid 
         self.update_balance(-amount)
 
+    @abstractmethod
     def get_service_charges(self):
         """
-        Returns to the calculated service charge: BASE_SERVICE_CHARGE.
+        Abstracted method to calculate service charge.
         """
         return self.BASE_SERVICE_CHARGE
         

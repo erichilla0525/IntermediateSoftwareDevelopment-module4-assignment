@@ -1,4 +1,4 @@
-""""
+""""gi
 Description: InvestmentAccount Class.
 Author: {Tong Xu}
 Date: {2024.10.2}
@@ -12,6 +12,11 @@ class InvestmentAccount(BankAccount):
     Attributes:
         TEN_YEARS_AGO(date): The TEN_YEARS_AGO constant of date type will be calculated to the current date minus ten years using the following formula
         management_fee(float): a flat-rate fee the bank charges for managing an InvestmentAccount
+    Methods:
+        __init__(): Initializes investmentAccount instance.
+        __str__(): Returns a string representation of investmentAccount.
+        get_service_charges(): Calculate the service charge for investmentAccount.
+
     """
     TEN_YEARS_AGO = date.today() - timedelta(days = 10 * 365.25)
     
@@ -50,10 +55,10 @@ class InvestmentAccount(BankAccount):
         """
         Calculate the service charages based on years
         """
-        if self._date_created > self.TEN_YEARS_AGO:
-            return self.BASE_SERVICE_CHARGE + self.__management_fee
-        else:
+        if self._date_created < self.TEN_YEARS_AGO:
             return self.BASE_SERVICE_CHARGE
+        else:
+            return self.BASE_SERVICE_CHARGE + self.__management_fee
         
 
         
