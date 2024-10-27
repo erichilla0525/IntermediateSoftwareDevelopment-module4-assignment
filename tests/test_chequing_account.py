@@ -43,19 +43,19 @@ class TestChequingAccount(unittest.TestCase):
 
     # Test service charge is set to the BASE_SERVICE_CHARGE value when balance greater than overdraft limit
     def test_service_charge_is_set_to_the_BASE_SERVICE_CHARGE_value_when_balance_greater_than_overdraft_limit(self):
-        self.assertEqual(self.chequeaccount1.get_service_charges(),self.chequeaccount1.BASE_SERVICE_CHARGE)
+        self.assertEqual(self.chequeaccount1.get_service_charges(),self.chequeaccount1._ChequingAccount__service_charge.Base_Service_Charge)
 
     # Test service charge is set correctly when balance less than overdraft lmit
     def test_service_charge_is_set_correctly_when_balance_less_than_overdraft_lmit(self):
         cheque = ChequingAccount(12345,678,200.00,date(2024,10,1),300,0.10)
         expected_value = cheque.get_service_charges()
-        actual_value = cheque.BASE_SERVICE_CHARGE + (300-200) * 0.10
+        actual_value = cheque._ChequingAccount__service_charge.Base_Service_Charge + (300-200) * 0.10
         self.assertEqual(expected_value,round(actual_value,2))
 
     # Test service charge is set to the BASE_SERVICE_CHARGE when balance equal to overdraft limit
     def test_service_charge_is_set_to_the_BASE_SERVICE_CHARG_Ewhen_balance_equal_to_overdraft_limit(self):
         cheque = ChequingAccount(12345,678,300.00,date(2024,10,1),300,0.10)
-        self.assertEqual(cheque.get_service_charges(),cheque.BASE_SERVICE_CHARGE)
+        self.assertEqual(cheque.get_service_charges(),cheque._ChequingAccount__service_charge.Base_Service_Charge)
 
     # Test appropriate str value returned based on attribute values.
     def test_appropriate_str_value_returned_based_on_attribute_values(self):

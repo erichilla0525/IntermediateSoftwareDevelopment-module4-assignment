@@ -6,7 +6,10 @@ Author: {Tong Xu}
 Date: {2024.9.10}
 """
 
-class client:
+from utility.file_utils import simulate_send_email
+from datetime import datetime
+
+class Client:
     """
     Client: For containing client dat
     Attributes:
@@ -87,6 +90,17 @@ class client:
     # def a _str_ method that returns to a str format
     def __str__(self):
         return f"{self.__last_name}, {self.__first_name} [{self.__client_number}] - {self.__email_address}"
+    
+    
+    def update(self, message: str):
+        """
+        """
+        #
+        subject = f"ALERT: Unusual Activity: {datetime.now()}"
+        #
+        email_message = f"Notification for {self.__client_number}: {self.__first_name} {self.__last_name}: {message}"
+        #
+        simulate_send_email(self.__email_address, subject, email_message)
     
 
     

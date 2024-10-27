@@ -6,8 +6,9 @@ Date: {2024.9.10}
 
 from datetime import date
 from abc import ABC, abstractmethod
+from patterns.observer.subject import Subject
 
-class BankAccount(ABC):
+class BankAccount(Subject, ABC):
     """
     BankAcount: For containing BankAccount data
     Attributes:
@@ -20,11 +21,12 @@ class BankAccount(ABC):
         account_number():
         
     """
+    LARGE_TRANSACTION_THRESHOLD = 9999.99
+    LOW_BALANCE_LEVEL = 50.0
+    
+
     
     def __init__(self, account_number:int, client_number:int, balance:float, date_created:date):
-
-        self.BASE_SERVICE_CHARGE = 0.50
-
         """
         init: Initialize a class of attribute with args value
         Args:
@@ -32,6 +34,7 @@ class BankAccount(ABC):
             client_number(int): An integer value representing the client number representing the account holder.
             balance(float): A float value representing the current balance of the bank account.
         """
+        super().__init__()
 
         # Validate account number is integer
         if not isinstance(account_number,int):
@@ -80,7 +83,7 @@ class BankAccount(ABC):
         """
         return self.__balance
     
-    def update_balance(self,amount):
+    def update_balance(self, amount):
         """
         update_balance: For updating balance of the account
         Args:
@@ -90,6 +93,16 @@ class BankAccount(ABC):
             self.__balance += amount
         else:
             raise ValueError("Amount must be a float")
+        
+        if self.__balance < self.LOW_BALANCE_LEVEL:
+            message = f"Low balance warning ${self.__balance}: on account {self.__account_number}."
+            self.notify(message)
+
+        if abs(amount) > self.LARGE_TRANSACTION_THRESHOLD:
+            message = f"Large transaction ${amount}: on account {self.__account_number}."
+            self.notify(message)
+
+            
 
     def deposit(self,amount):
         """

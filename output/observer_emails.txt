@@ -1,0 +1,31 @@
+
+---
+To: erichilla0525@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-23 04:23:44.631178
+Message: Notification for 123: Daniel San: Large transaction $10000.0: on account 456.
+---
+---
+To: erichilla0525@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-23 04:23:44.631178
+Message: Notification for 123: Daniel San: Large transaction $-10000.0: on account 456.
+---
+---
+To: erichilla0525@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-23 04:23:44.631178
+Message: Notification for 123: Daniel San: Low balance warning $20.0: on account 789.
+---
+---
+To: dkmd251@163.com
+Subject: ALERT: Unusual Activity: 2024-10-23 04:23:44.631178
+Message: Notification for 321: Henry Hu: Large transaction $20000.0: on account 987.
+---
+---
+To: dkmd251@163.com
+Subject: ALERT: Unusual Activity: 2024-10-23 04:23:44.631178
+Message: Notification for 321: Henry Hu: Low balance warning $20.0: on account 987.
+---
+---
+To: dkmd251@163.com
+Subject: ALERT: Unusual Activity: 2024-10-23 04:23:44.631178
+Message: Notification for 321: Henry Hu: Large transaction $-20000.0: on account 987.
+---

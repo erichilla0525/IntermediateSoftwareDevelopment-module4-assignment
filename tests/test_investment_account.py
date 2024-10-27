@@ -9,10 +9,11 @@ the following command:
 """
 import unittest
 from bank_account.investment_account import InvestmentAccount
-from datetime import date
+from datetime import date, timedelta
 
 class TestInvestmentAccount(unittest.TestCase):
     def setUp(self):
+        self.ten_years_ago = date.today() - timedelta(days=10 * 365.25)
         self.InvestAccount1 = InvestmentAccount(12345,678,300.00,date(2010,5,25),5)
 
     # test attributes are set to parameter values.
@@ -31,17 +32,17 @@ class TestInvestmentAccount(unittest.TestCase):
     # test service when date created more than 10 years ago
     def test_service_when_date_created_more_than_10_years_ago(self):
         investmentaccount = InvestmentAccount(12345,678,300.00,date(2010,5,25),5)
-        self.assertEqual(investmentaccount.get_service_charges(),InvestmentAccount.BASE_SERVICE_CHARGE)
+        self.assertEqual(investmentaccount.get_service_charges(),investmentaccount._InvestmentAccount__service_charge.Base_Service_Charge)
 
     # test service when date created less than 10 years ago
-    def test_service_when_date_created_not_more_than_10_years_ago(self):
+    def test_service_when_date_created_less_than_10_years_ago(self):
         investmentaccount = InvestmentAccount(12345,678,300.00,date(2020,5,25),5)
-        self.assertEqual(investmentaccount.get_service_charges(),InvestmentAccount.BASE_SERVICE_CHARGE + investmentaccount._InvestmentAccount__management_fee)
+        self.assertEqual(investmentaccount.get_service_charges(),investmentaccount._InvestmentAccount__service_charge.Base_Service_Charge + investmentaccount._InvestmentAccount__management_fee)
 
     # test service when date created is excactly 10 years ago
     def test_service_when_date_created_is_excatly_10_years_ago(self):
-        investmentaccount = InvestmentAccount(12345,678,300.00,date(2014,10,4),5)
-        self.assertEqual(investmentaccount.get_service_charges(),InvestmentAccount.BASE_SERVICE_CHARGE + investmentaccount._InvestmentAccount__management_fee)
+        investmentaccount = InvestmentAccount(12345,678,300.00, self.ten_years_ago, 5)
+        self.assertEqual(investmentaccount.get_service_charges(),investmentaccount._InvestmentAccount__service_charge.Base_Service_Charge + investmentaccount._InvestmentAccount__management_fee)
 
     # test correctly displays waived management fee when date created more than 10 years ago.
     def test_correctly_displays_waived_management_fee_when_date_created_more_than_10_years_ago(self):

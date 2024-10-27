@@ -5,6 +5,7 @@ Date: {2024.10.2}
 """
 from bank_account.bank_account import BankAccount
 from datetime import date, timedelta
+from patterns.strategy.management_fee_strategy import ManagementFeeStrategy
 
 class InvestmentAccount(BankAccount):
     """
@@ -28,6 +29,9 @@ class InvestmentAccount(BankAccount):
             management_fee(float):A float which stores a flat-rate fee the bank charges for managing an InvestmentAccount
         """
         super().__init__(account_number,client_number,balance,date_created)
+
+        self.__service_charge = ManagementFeeStrategy(date_created, management_fee)
+
 
         # Validate the management fee can be converted to a float
         try:
@@ -55,10 +59,7 @@ class InvestmentAccount(BankAccount):
         """
         Calculate the service charages based on years
         """
-        if self._date_created < self.TEN_YEARS_AGO:
-            return self.BASE_SERVICE_CHARGE
-        else:
-            return self.BASE_SERVICE_CHARGE + self.__management_fee
+        return self.__service_charge.calculate_service_charges(self)
         
 
         

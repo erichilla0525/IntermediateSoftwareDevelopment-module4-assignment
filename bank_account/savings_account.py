@@ -6,6 +6,7 @@ Date: {2024.10.2}
 
 from bank_account.bank_account import BankAccount
 from datetime import date, timedelta
+from patterns.strategy.minimum_balance_strategy import MinimumBalanceStrategy
 
 class SavingsAccount(BankAccount):
     """
@@ -20,7 +21,6 @@ class SavingsAccount(BankAccount):
         get_service_charges(): Calculate the service charge of saving account.
     """
 
-    SERVICE_CHARGE_PREMIUM = 2.0
 
     def __init__(self,account_number:int, client_number:int, balance:float, date_created:date, minimum_balance:float):
         """
@@ -29,6 +29,8 @@ class SavingsAccount(BankAccount):
             minimum_balance:(float): A float that represent the minimum value a balance can be before further service charges are applied.
         """
         super().__init__(account_number,client_number,balance,date_created)
+
+        self.__service_charge = MinimumBalanceStrategy(minimum_balance)
 
 
         # Validate that minimum balance can be converted to a float
@@ -48,8 +50,5 @@ class SavingsAccount(BankAccount):
         """
         Calculate the service charges based on minimum balance
         """
-        if self.balance >= self.__minimum_balance:
-            return self.BASE_SERVICE_CHARGE
-        else:
-            return self.BASE_SERVICE_CHARGE * self.SERVICE_CHARGE_PREMIUM
+        return self.__service_charge.calculate_service_charges(self)
         
