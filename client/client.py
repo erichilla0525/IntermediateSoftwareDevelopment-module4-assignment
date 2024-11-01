@@ -94,6 +94,10 @@ class Client:
     
     def update(self, message: str):
         """
+        send a message to the client's email address 
+
+        Args:
+            message(str): The message notofication that sent to the clients
         """
         #
         subject = f"ALERT: Unusual Activity: {datetime.now()}"
