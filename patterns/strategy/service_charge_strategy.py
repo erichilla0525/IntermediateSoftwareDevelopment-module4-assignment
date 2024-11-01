@@ -1,6 +1,6 @@
 """
-Description: {description of the file.}
-Author: {student name}
+Description: {ServiceChargeStrategy class}
+Author: {Tong Xu}
 """
 
 from abc import abstractmethod, ABC
