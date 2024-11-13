@@ -1,0 +1,9 @@
+root - ERROR - Unable to create client: First name can not be blank
+
+
+root - ERROR - Unable to create bank account: could not convert string to float: 'ten'
+
+
+root - ERROR - Bank Account: 20100 contains invalid Client Number: 9999
+
+
