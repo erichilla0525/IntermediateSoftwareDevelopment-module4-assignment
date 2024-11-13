@@ -2,8 +2,8 @@
 Description: A client program written to verify implementation 
 of the Observer Pattern.
 Author: ACE Faculty
-Edited by: {Student Name}
-Date: {Date}
+Edited by: {Tong Xu}
+Date: {2024-10-23}
 """
 
 # 1.  Import all BankAccount types using the bank_account package
