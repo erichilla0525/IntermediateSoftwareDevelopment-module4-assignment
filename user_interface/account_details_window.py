@@ -52,6 +52,7 @@ class AccountDetailsWindow(DetailsWindow):
     @Slot()
     def __on_apply_transaction(self):
         """
+        Method that handle both deposit and withdraw functions.
         """
         try:
             transaction_amount = float(self.transaction_amount_edit.text())
@@ -82,6 +83,7 @@ class AccountDetailsWindow(DetailsWindow):
     
     def __on_exit(self):
         """
+        Closes the transaction amount window.
         """
         self.close()
 

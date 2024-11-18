@@ -154,11 +154,9 @@ class BankAccount(Subject, ABC):
         """
         return self.BASE_SERVICE_CHARGE
         
-
-    # def a str method that the balance is displayed to 2 decimal places with currency ($) formatting
     def __str__(self):
         """
-
+        A str method that the balance is displayed to 2 decimal places with currency ($) formatting
         """
         return f"Account Number: {self.__account_number} Balance: ${self.__balance:.2f}"
 

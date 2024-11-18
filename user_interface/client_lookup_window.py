@@ -35,10 +35,15 @@ class ClientLookupWindow(LookupWindow):
         
     @Slot()
     def __on_text_changed(self):
+        """
+        Clear the content in account table.
+        """
         self.account_table.setRowCount(0)
     
     def on_lookup_client(self):
         """
+        Look up the client and display the corresponding account table.
+        Shows error message when input value is not numeric.
         """
 
         # Obtain the client number entered into the the client_number_edit widget and convert 
@@ -77,6 +82,11 @@ class ClientLookupWindow(LookupWindow):
     @Slot(int, int)
     def on_select_account(self, row: int, column: int) ->None:
         """
+        Open the accoun tDetail Window for the selected account.
+        Display message when the selection is invalid.
+        Args:
+            row(int): The row number in the table that user selects.
+            column(int): The column number in table that usee selects.
         """
         account_number = self.account_table.item(row, 0)
 
@@ -108,6 +118,9 @@ class ClientLookupWindow(LookupWindow):
     @Slot(BankAccount)
     def update_data(self, account: BankAccount):
         """
+        Updates account details in the account table and accounts dictionary.
+        Args:
+            account (BankAccount): The updated BankAccount object.
         """
         for row in range(self.account_table.rowCount()):
             account_number_item = self.account_table.item(row, 0)
