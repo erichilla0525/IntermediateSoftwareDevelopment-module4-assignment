@@ -6,7 +6,11 @@ import copy
 
 class AccountDetailsWindow(DetailsWindow):
     """
-    A class used to display account details and perform bank account transactions.
+    A Python class which allows users perform bank account transactions. 
+    This class is meant to work in conjunction with the BankAccount class such that deposit and withdraw functionality may be used.
+
+    Initializes the Transaction window by adding various widgets and setting properties. 
+    Widgets include: accountNumberLabel, balanceLabel, transactionAmountEdit, depositButton, withdrawButton and exitButton.
     """
     balance_update = Signal(BankAccount)
 
