@@ -15,6 +15,13 @@ class ClientLookupWindow(LookupWindow):
 
     Initializes the Lookup Window by adding various widgets and setting properties. 
     Widgets include: clientNumberEdit, clientInfoLabel, lookupButton and accountTable.
+
+    Methods:
+        __init__(): Initializes the Lookup Window by adding various widgets and setting properties. 
+        __on_text_changed(): Clear the content in account table.
+        on_lookup_client(): Look up the client and display the corresponding account table.
+        on_select_account(row, column): Open the accoun tDetail Window for the selected account.
+        update_data(account): Updates account details in the account table and accounts dictionary.
     """
     def __init__(self):
         """

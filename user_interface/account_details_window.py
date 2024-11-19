@@ -11,6 +11,11 @@ class AccountDetailsWindow(DetailsWindow):
 
     Initializes the Transaction window by adding various widgets and setting properties. 
     Widgets include: accountNumberLabel, balanceLabel, transactionAmountEdit, depositButton, withdrawButton and exitButton.
+    
+    Methods:
+        __init__(account): Initializes the transaction window with the given bank account.
+        __on_apply_transaction(): handles both deposit and withdraw functions.
+        __on_exit(): Closes the transaction window.
     """
     balance_update = Signal(BankAccount)
 
