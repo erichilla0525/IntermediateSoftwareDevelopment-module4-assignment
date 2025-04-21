@@ -4,15 +4,29 @@ Author: {Tong Xu}
 Date: {2024.9.10}
 """
 
-class BankAccount:
+from datetime import date
+from abc import ABC, abstractmethod
+from patterns.observer.subject import Subject
+
+class BankAccount(Subject, ABC):
     """
     BankAcount: For containing BankAccount data
     Attributes:
-        __account_number(int): An integer value representing the bank account number.
-        __client_number(int): An integer value representing the client number representing the account holder.
-        __balance(float): A float value representing the current balance of the bank account.
+        __account_number(int): Bank account number of the bankaccount.
+        __client_number(int): Client number of the bankaccount.
+        __balance(float): Current balance of the bank account of the bankaccount. 
+
+    Methods:
+        __init__(): Initializes a BankAccount object
+        account_number():
+        
     """
-    def __init__(self, account_number:int, client_number:int, balance:float):
+    LARGE_TRANSACTION_THRESHOLD = 9999.99
+    LOW_BALANCE_LEVEL = 50.0
+    
+
+    
+    def __init__(self, account_number:int, client_number:int, balance:float, date_created:date):
         """
         init: Initialize a class of attribute with args value
         Args:
@@ -20,6 +34,7 @@ class BankAccount:
             client_number(int): An integer value representing the client number representing the account holder.
             balance(float): A float value representing the current balance of the bank account.
         """
+        super().__init__()
 
         # Validate account number is integer
         if not isinstance(account_number,int):
@@ -36,6 +51,12 @@ class BankAccount:
             self.__balance = float(balance)
         except ValueError:
             self.__balance = 0
+
+        # Validate data created is a instance of data class
+        if isinstance(date_created,date):
+            self._date_created = date_created
+        else:
+            self._date_created = date.today()
 
 
     # Add property for account number
@@ -62,7 +83,7 @@ class BankAccount:
         """
         return self.__balance
     
-    def update_balance(self,amount):
+    def update_balance(self, amount):
         """
         update_balance: For updating balance of the account
         Args:
@@ -72,6 +93,16 @@ class BankAccount:
             self.__balance += amount
         else:
             raise ValueError("Amount must be a float")
+        
+        if self.__balance < self.LOW_BALANCE_LEVEL:
+            message = f"Low balance warning ${self.__balance}: on account {self.__account_number}."
+            self.notify(message)
+
+        if abs(amount) > self.LARGE_TRANSACTION_THRESHOLD:
+            message = f"Large transaction ${amount}: on account {self.__account_number}."
+            self.notify(message)
+
+            
 
     def deposit(self,amount):
         """
@@ -116,10 +147,16 @@ class BankAccount:
         # Update the balance if withdraw amount is valid 
         self.update_balance(-amount)
 
-    # def a str method that the balance is displayed to 2 decimal places with currency ($) formatting
+    @abstractmethod
+    def get_service_charges(self):
+        """
+        Abstracted method to calculate service charge.
+        """
+        return self.BASE_SERVICE_CHARGE
+        
     def __str__(self):
         """
-
+        A str method that the balance is displayed to 2 decimal places with currency ($) formatting
         """
         return f"Account Number: {self.__account_number} Balance: ${self.__balance:.2f}"
 

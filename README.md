@@ -9,6 +9,9 @@ have one or more bank accounts.
 
 ## Assignment
 Assignment [assignment 1]: [Module 1 Assignment Instructions -- Classes]
+Assignment [assignment 2]: [Module 2 Assignment Instructions -- Abstraction, Inheritance and Polymorphism]
+Assignment [assignment 3]: [Module 3 Module 3 Assignment Instructions -- Design Patterns]
+Assignment [assignment 4]: [Module 4 Module 3 Assignment Instructions -- Programming Paradigms]
 
 ## Encapsulation
 [In both Client and BankAccout class, I decleared attributes such as first name, balance, account number, client id as private

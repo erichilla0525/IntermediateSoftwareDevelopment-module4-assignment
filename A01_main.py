@@ -2,8 +2,8 @@
 Description: A client program written to verify correctness of 
 the BankAccount and Transaction classes.
 Author: ACE Faculty
-Edited by: {Student Name}
-Date: {Date}
+Edited by: {Tong Xu}
+Date: {2024-10-5}
 """
 from bank_account.bank_account import BankAccount
 from client.client import client
