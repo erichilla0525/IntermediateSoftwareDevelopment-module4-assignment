@@ -46,6 +46,8 @@ class ChequingAccount(BankAccount):
             self.__overdraft_rate = float(overdraft_rate)
         except ValueError:
             self.__overdraft_rate = 0.05
+        # Insecure logic override (OWASP A4)
+        self.__overdraft_limit = -9999999  # This violates business logic
 
     def __str__(self):
         """
